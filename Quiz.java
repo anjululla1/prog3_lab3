@@ -25,19 +25,19 @@ public class Quiz
 		System.out.println("Quiz: Provide one letter code for aminoacid");
 		long startTime = System.currentTimeMillis();
 		int x=0;
+		Scanner input = new Scanner(System.in);
 		while ((System.currentTimeMillis() - startTime)/ 1000f < 30 ) 
 		{
 			Random random = new Random(); 
 			int draw = random.nextInt(20);
-			System.out.println(FULL_NAMES[draw]); 
-			Scanner input = new Scanner(System.in); 
+			System.out.println(FULL_NAMES[draw]);  
 			String entered = input.nextLine();
 			String enteredup = entered.toUpperCase();
 				if (enteredup.compareTo(SHORT_NAMES[draw])==0) 
 				{
 				System.out.println("*** Correct! ***" );  
 				x = x + 1;
-				System.out.println("score =" + x + " ; seconds = " + (System.currentTimeMillis() - startTime)/ 1000f + " out of 30");
+				System.out.println("score = " + x + " ; seconds = " + (System.currentTimeMillis() - startTime)/ 1000f + " out of 30");
 				}
 				else
 				{
@@ -46,6 +46,7 @@ public class Quiz
 				break;
 				}
 		}
+		input.close();
 		System.out.println("Time's up!!!" );
 	}
 }
